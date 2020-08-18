@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 20
 ---
 
 # bhpcli rest-server

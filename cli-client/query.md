@@ -1,20 +1,19 @@
 ---
 order: 4
 ---
-
 # bhpcli query
-bhpcli query 命令可以查询链上的数据
+The `bhpcli query` command can query data on the chain.
 
 ## bhpcli query tx
-按交易Hash查询交易
+Query transaction by transaction hash.
 ```shell script
 bhpcli query tx [hash] [flags]
 ```
-示例
+Examples
 ```shell script
 bhpcli query tx 2F5EC6DAEB3AA6B6803B3F0A0BE9D6B5B7E849A9CC2BEE6A59A93EE72967995D
 ```
-响应
+Response
 ```shell script
 {
 	"height": "63139",
@@ -109,15 +108,15 @@ bhpcli query tx 2F5EC6DAEB3AA6B6803B3F0A0BE9D6B5B7E849A9CC2BEE6A59A93EE72967995D
 ## bhpcli query block
 在给定高度获取区块的验证数据。如果未指定高度，则将使用最新高度作为默认高度。
 
-按高度获取区块信息
+Query block information by transaction height.
 ```shell script
 bhpcli query block <block-height>
 ```
-示例
+Examples
 ```shell script
 bhpcli query block 63139
 ```
-响应
+Response
 ```shell script
 {
 	"block_meta": {
@@ -264,15 +263,15 @@ bhpcli query block 63139
 }
 ```
 ## bhpcli query txs
-可以按搜索条件分页查询交易
+Paging query transactions by search criteria.
 ```shell script
 bhpcli query txs [flags]
 ```
-示例
+Examples
 ```shell script
 bhpcli query txs --events 'message.sender=bhp1gwmngxpzmpqd6uajaa4f45sexty6spzvyjqssa&message.action=send' --page 1 --limit 30
 ```
-响应
+Response
 ```shell script
 {
 	"total_count": "1",
@@ -371,15 +370,15 @@ bhpcli query txs --events 'message.sender=bhp1gwmngxpzmpqd6uajaa4f45sexty6spzvyj
 }
 ```
 ## bhpcli query tendermint-validator-set
-查询某个高度的验证者详情
+Query validator details by height
 ```shell script
 bhpcli query tendermint-validator-set [height] [flags]
 ```
-示例
+Examples
 ```shell script
 bhpcli query tendermint-validator-set 63139
 ```
-响应
+Response
 ```shell script
 {
 	"block_height": "63139",
@@ -407,15 +406,15 @@ bhpcli query tendermint-validator-set 63139
 }
 ```
 ## bhpcli query account
-查询账户详情
+Query account details
 ```shell script
 bhpcli query account [address] [flags]
 ```
-示例
+Examples
 ```shell script
 bhpcli query account bhp1pplj323gwrs98pjwujvk72qvd6wkkg6fugyctq
 ```
-响应
+Response
 ```shell script
 {
 	"type": "cosmos-sdk/Account",
@@ -435,16 +434,16 @@ bhpcli query account bhp1pplj323gwrs98pjwujvk72qvd6wkkg6fugyctq
 }
 ```
 ## bhpcli query supply
-查询链上所有的代币
+Query the total supply of coins of the chain
 ```shell script
 bhpcli query supply [flags]
 bhpcli query supply [command]
 ```
-示例
+Examples
 ```shell script
 bhpcli query supply total
 ```
-响应
+Response
 ```shell script
 [{
 	"denom": "abhp",

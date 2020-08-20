@@ -3,17 +3,17 @@ order: 2
 ---
 
 # bhpcli status
-查询远程节点的状态
-```
+Query remote node for status
+```shell script
 bhpcli status [flags]
 ```
 
-示例
-```
+Examples
+```shell script
 bhpcli status
 ```
-响应
-```
+Response
+```shell script
 {
 	"jsonrpc": "2.0",
 	"id": 1,

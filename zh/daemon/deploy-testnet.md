@@ -6,7 +6,7 @@ order: 4
 
 ## 单节点测试网
 前提
-- [安装 bhp](./install-bhp.md)
+- [安装 bhp](../getting-start/install-bhp.md)
 - [安装 `jq`](https://stedolan.github.io/jq/download/) (可选)
 
 ```shell script
@@ -33,9 +33,69 @@ bhpd collect-gentxs
 # 现在可以启动`bhpd`了
 bhpd start
 ```
+
+## bhpd migrate
+
+```shell script
+bhpd migrate [target-version] [genesis-file] [flags]
+```
+
+## bhpd replay
+
+```shell script
+bhpd replay <root-dir> [flags]
+```
+
+## bhpd unsafe-reset-all
+
+可以使用此命令来重置节点，包括本地区块链数据库，地址簿文件，并将`priv_validator.json`重置为创世状态。
+
+当本地区块链数据库以某种方式中断和无法同步或参与共识时，这是有用的。
+
+```shell script
+bhpd unsafe-reset-all
+```
+
+## bhpd tendermint
+
+查询可以在p2p连接中使用的唯一节点ID，例如在[config.toml](intro.md#cnofig-toml)中`seeds`和`persistent_peers`的格式`<node-id>@ip:26656`。
+
+节点ID存储在[node_key.json](intro.md#node_key-json)中。
+
+```shell script
+bhpd tendermint show-node-id
+```
+
+- 查询[Tendermint Pubkey](../concepts/validator-faq.md#tendermint-密钥)，用于[identify your validator](../cli-client/stake.md#iriscli-stake-create-validator),并将用于在共识过程中签署Pre-vote/Pre-commit。
+
+[Tendermint Key](../concepts/validator-faq.md#tendermint-密钥)存储在[priv_validator.json](intro.md#priv_validator-json)中，创建验证人后，请一定要记得[备份](../concepts/validator-faq.md#如何备份验证人节点)。
+
+```bash
+bhpd tendermint show-validator
+```
+
+- 查询bech32前缀验证人地址
+
+```shell script
+bhpvalcons1apd8fcgqa84dg4sagl5cj2yn2z59mvy5p2pn6d
+```
+
+- 查询tendermint相关版本
+
+```shell script
+bhpd tendermint version
+```
+响应
+```shell script
+tendermint: 0.32.12
+abci: 0.16.1
+blockprotocol: 10
+p2pprotocol: 7
+```
+
 ## 多节点测试网
 前提
-- [安装 bhp](./install-bhp.md)
+- [安装 bhp](../getting-start/install-bhp.md)
 - [安装 docker](https://docs.docker.com/engine/installation/)
 - [安装 docker-compose](https://docs.docker.com/compose/install/)
 ### 构建和初始化

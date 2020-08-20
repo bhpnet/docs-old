@@ -35,7 +35,7 @@ bhpcli query gov proposal [proposal-id] [flags]
 
 | 名称, 速记    | 类型 | 必须 | 默认 | 描述     |
 | ------------- | ---- | -------- | ---- | -------- |
-| --proposal-id | uint | 是       |      | 提案的Id |
+| proposal-id | uint | 是       |      | 提案的Id |
 ## bhpcli query gov proposals
 
 按条件查询提案。
@@ -218,7 +218,7 @@ bhpcli query gov deposits 1
 
 ## bhpcli query gov tally
 
-记录指定提案投票信息
+查询提案投票的统计信息
 
 ```shell script
 bhpcli query gov tally [proposal-id] [flags]

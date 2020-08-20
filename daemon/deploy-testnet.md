@@ -6,7 +6,7 @@ order: 4
 
 ## Single Node Testnet
 Requirements:
-- [安装 bhp](./install-bhp.md)
+- [安装 bhp](../getting-start/install-bhp.md)
 - [安装 `jq`](https://stedolan.github.io/jq/download/) (optional)
 
 ```shell script
@@ -35,7 +35,7 @@ bhpd start
 ```
 ## Multiple Nodes Testnet
 Requirements:
-- [install bhp](./install-bhp.md)
+- [install bhp](../getting-start/install-bhp.md)
 - [install docker](https://docs.docker.com/engine/installation/)
 - [install docker-compose](https://docs.docker.com/compose/install/)
 ### Build and Init

@@ -152,7 +152,7 @@ bhpcli keys add <multisig-keyname> --multisig-threshold=2 --multisig=<signer-key
 
 If you don't have all the permission of sub-keys, you can ask for the pubkeys to create the offline keys first, then you will be able to create the multisig key.
 
-Offline key can be created by "iriscli keys add --pubkey".
+Offline key can be created by "bhpcli keys add --pubkey".
 :::
 
 

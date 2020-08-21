@@ -1,8 +1,8 @@
 ---
-order: 2
+order: 3
 ---
 
-# bhpcli status
+# status
 Query remote node for status
 ```shell script
 bhpcli status [flags]

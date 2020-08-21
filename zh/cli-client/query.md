@@ -1,11 +1,23 @@
 ---
-order: 4
+order: 5
 ---
 
-# bhpcli query
+# query
 bhpcli query 命令可以查询链上的数据
 
+## 可用命令
+
+| 名称                               | 描述                                                         |
+| ---------------------------------- | ------------------------------------------------------------ |
+| [tx](#bhpcli-query-tx)           | 按交易Hash查询交易 |
+| [block](#bhpcli-query-block)         | 按高度获取区块信息                                                 |
+| [txs](#bhpcli-query-txs)         | 按搜索条件分页查询交易                                   |
+| [tendermint-validator-set](#bhpcli-query-tendermint-validator-set)     | 查询某个高度的验证者详情                  |
+| [account](#bhpcli-query-account)           | 查询账户详情 |
+| [supply](#bhpcli-query-supply)           | 查询链上所有的代币 |
+
 ## bhpcli query tx
+
 按交易Hash查询交易
 ```shell script
 bhpcli query tx [hash] [flags]
@@ -107,9 +119,11 @@ bhpcli query tx 2F5EC6DAEB3AA6B6803B3F0A0BE9D6B5B7E849A9CC2BEE6A59A93EE72967995D
 ```
 
 ## bhpcli query block
+
 在给定高度获取区块的验证数据。如果未指定高度，则将使用最新高度作为默认高度。
 
 按高度获取区块信息
+
 ```shell script
 bhpcli query block <block-height>
 ```
@@ -263,8 +277,11 @@ bhpcli query block 63139
 	}
 }
 ```
+
 ## bhpcli query txs
+
 可以按搜索条件分页查询交易
+
 ```shell script
 bhpcli query txs [flags]
 ```
@@ -370,7 +387,9 @@ bhpcli query txs --events 'message.sender=bhp1gwmngxpzmpqd6uajaa4f45sexty6spzvyj
 	}]
 }
 ```
+
 ## bhpcli query tendermint-validator-set
+
 查询某个高度的验证者详情
 ```shell script
 bhpcli query tendermint-validator-set [height] [flags]
@@ -406,7 +425,9 @@ bhpcli query tendermint-validator-set 63139
 	}]
 }
 ```
+
 ## bhpcli query account
+
 查询账户详情
 ```shell script
 bhpcli query account [address] [flags]
@@ -434,7 +455,9 @@ bhpcli query account bhp1pplj323gwrs98pjwujvk72qvd6wkkg6fugyctq
 	}
 }
 ```
+
 ## bhpcli query supply
+
 查询链上所有的代币
 ```shell script
 bhpcli query supply [flags]

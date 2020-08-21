@@ -1,12 +1,21 @@
 ---
-order: 5
+order: 6
 ---
 
-# bhpcli tx
+# tx
 
+## 可用命令
+
+| 名称                               | 描述                                                         |
+| ---------------------------------- | ------------------------------------------------------------ |
+| [send](#bhpcli-tx-send)           | 发送令牌到另一个地址，此命令包括 generate, sign 和 broadcast 这些步骤 |
+| [sign](#bhpcli-tx-sign)         | 签名生成的离线交易文件，该文件由generate-only标志生成                                                 |
+| [broadcast](#bhpcli-tx-broadcast)         | 这个命令用于广播已离线签名的交易到网络                                   |
 
 ## bhpcli tx send
+
 发送令牌到另一个地址，此命令包括 generate, sign 和 broadcast 这些步骤。
+
 ```shell script
 bhpcli tx send [from_key_or_address] [to_address] [amount] [flags]
 ```
@@ -36,6 +45,7 @@ bhpcli tx send  bhp1j4kfjvsqdcpdzdnv4c9zkp5qxt49ngf2f5nmwh bhp1t7gmv3qraqc7urcp2
 ```
 
 ## bhpcli tx sign
+
 签名生成的离线交易文件，该文件由generate-only标志生成
 ```shell script
 bhpcli tx sign [file] [flags]

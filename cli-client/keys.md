@@ -2,7 +2,7 @@
 order: 2
 ---
 
-# bhpcli keys
+# keys
 
 Keys allows you to manage your local tendermint keystore (wallets) for BHP.
 
@@ -27,7 +27,7 @@ Create a bip39 mnemonic, sometimes called a seed phrase, by reading from the sys
 bhpcli keys mnemonic <flags>
 ```
 
-**Flags**：*
+**Flags**：
 
 
 | **Name, shorthand** | **Default** | **Description**                                              | **Required** |

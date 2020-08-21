@@ -2,7 +2,7 @@
 order: 2
 ---
 
-# bhpcli keys
+# keys
 
 Keys模块用于管理BHP的Tendermint本地密钥库（钱包）。
 

@@ -2,7 +2,7 @@
 order: 12
 ---
 
-# bhpcli tx slashing
+# slashing
 
 ## bhpcli tx slashing unjail
 

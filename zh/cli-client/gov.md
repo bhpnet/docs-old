@@ -2,7 +2,7 @@
 order: 10
 ---
 
-# bhpcli tx gov
+# gov
 
 该模块提供了[链上治理](../concepts/governance.md)的基本功能。
 
@@ -10,18 +10,18 @@ order: 10
 
 | 名称                                            | 描述                                              |
 | ----------------------------------------------- | ------------------------------------------------- |
-| [query gov proposal](#bhpcli-query-gov-query-proposal)   | 查询单个提案的详细信息                        |
-| [query gov proposals](#bhpcli-query-gov-query-proposals) | 按条件查询提案                              |
-| [query gov vote](#bhpcli-query-gov-query-vote)           | 查询投票                                   |
-| [query gov votes](#bhpcli-gov-query-votes)         | 按条件查询投票                                    |
-| [query gov param](#bhpcli-query-gov-query-param)           | param                                  |
-| [query gov params](#bhpcli-gov-query-params)         | params                                   |
-| [query gov proposer](#bhpcli-query-gov-query-proposer)           | proposer                               |
-| [query gov deposit](#bhpcli-gov-query-votes)         | deposit                                  |
-| [query gov deposits](#bhpcli-query-gov-query-deposits)           | deposits                               |
-| [query gov tally](#bhpcli-gov-query-tally)         | tally                                  |
-| [tx gov submit-proposal](#bhpcli-tx-gov-submit-proposal) | 提交提案以及初始化抵押金额                        |
-| [tx gov deposit](#bhpcli-tx-gov-deposit)                 | 为有效的提案抵押通证                      |
+| [query gov proposal](#bhpcli-query-gov-proposal)   | 查询单个提案的详细信息                       |
+| [query gov proposals](#bhpcli-query-gov-proposals) | 按条件查询提案                              |
+| [query gov vote](#bhpcli-query-gov-vote)           | 查询投票                                   |
+| [query gov votes](#bhpcli-query-gov-votes)         | 按条件查询投票                                    |
+| [query gov param](#bhpcli-query-gov-param)           | 指定参数类型查询治理过程的参数。                    |
+| [query gov params](#bhpcli-query-gov-params)         | 查询治理过程的所有参数。                           |
+| [query gov proposer](#bhpcli-query-gov-proposer)           | 查询一个提议信息                            |
+| [query gov deposit](#bhpcli-query-gov-votes)         | 查询指定提案的抵押信息。              |
+| [query gov deposits](#bhpcli-query-gov-deposits)           | 查询指定提案的所有抵押信息。      |
+| [query gov tally](#bhpcli-query-gov-tally)         | 查询提案投票的统计信息        |
+| [tx gov submit-proposal](#bhpcli-tx-gov-submit-proposal) | 提交提案以及初始化抵押金额           |
+| [tx gov deposit](#bhpcli-tx-gov-deposit)                 | 为有效的提案抵押通证                |
 | [tx gov vote](#bhpcli-tx-gov-vote)                       | 为有效的提案投票，选项：Yes/No/NoWithVeto/Abstain |
 
 ## bhpcli query gov proposal
@@ -103,11 +103,48 @@ bhpcli query gov votes [proposal-id] [flags]
 ```
 ## bhpcli query gov param
 
+指定参数类型查询治理过程的参数。 (参数类型为voting：投票时长，tallying：统计参数，deposit：抵押参数)
+
 ```shell script
 bhpcli query gov param [param-type] [flags]
 ```
+示例
+```shell script
+bhpcli query gov param voting
+{
+    "voting_period":"172800000000000"
+}
+```
+
+```shell script
+bhpcli query gov param tallying
+{
+    "quorum":"0.334000000000000000",
+    "threshold":"0.500000000000000000",
+    "veto":"0.334000000000000000"
+}
+```
+
+```shell script
+bhpcli query gov param deposit
+{
+    "min_deposit":[
+        {
+            "denom":"abhp",
+            "amount":"1000000000"
+        }
+    ],
+    "max_deposit_period":"172800000000000"
+}
+```
 
 ## bhpcli query gov params
+
+查询治理过程的所有参数。        
+
+```shell script
+bhpcli query gov params [flags]
+```
 
 ```shell script
 {

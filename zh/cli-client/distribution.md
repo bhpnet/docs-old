@@ -2,7 +2,7 @@
 order: 11
 ---
 
-# bhpcli tx distribution
+# distribution
 
 distribution模块用于管理自己的 Staking 收益。
 

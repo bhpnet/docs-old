@@ -53,19 +53,14 @@ order: 1
 
 ## 模块命令列表
 
-| **子命令**                        | **描述**                         |
-| --------------------------------- | -------------------------------- |
+| **子命令**                        | **描述**                        |
+| --------------------------------- | ------------------------------|
 | [status](./status.md)             | 查询远程节点的状态               |
-| [tx](./tx.md)                     | Tx子命令                         |
-| [tendermint](./tendermint.md)     | Tendermint状态查询子命令         |
-| [bank](./bank.md)                 | 用于查询帐户和转账等的Bank子命令 |
-| [distribution](./distribution.md) | 收益管理子命令                   |
+| [query](./query.md)               | 查询子命令                      |
+| [tx](./tx.md)                     | Tx子命令                       |
+| [distribution](./distribution.md) | 收益管理子命令                  |
+| [slashing](./slashing.md)         | 解禁子命令                     |
 | [gov](./gov.md)                   | 治理和投票子命令                 |
-| [stake](./stake.md)               | Staking 子命令                   |
-| [upgrade](./upgrade.md)           | 软件升级子命令                   |
-| [service](./service.md)           | 服务子命令                       |
-| [guardian](./guardian.md)         | 特殊账户子命令                   |
-| [asset](./asset.md)               | 资产管理子命令                   |
-| [rand](./rand.md)                 | 随机数子命令                     |
+| [stake](./staking.md)             | Staking 子命令                 |
+| [rest-server](./rest-server.md)   | 客户端API命令                    |
 | [keys](./keys.md)                 | 密钥管理子命令                   |
-| [params](./params.md)             | 查询治理参数子命令               |

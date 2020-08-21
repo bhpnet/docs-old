@@ -1,19 +1,20 @@
 ---
-order: 2
+order: 3
 ---
 
-# bhpcli status
+# status
+
 查询远程节点的状态
-```
+```shell script
 bhpcli status [flags]
 ```
 
 示例
-```
+```shell script
 bhpcli status
 ```
 响应
-```
+```shell script
 {
 	"jsonrpc": "2.0",
 	"id": 1,

@@ -1,10 +1,22 @@
 ---
-order: 4
+order: 5
 ---
-# bhpcli query
+# query
 The `bhpcli query` command can query data on the chain.
 
+## Available Subommands
+
+| Name                               | Description                                                         |
+| ---------------------------------- | ------------------------------------------------------------ |
+| [tx](#bhpcli-query-tx)           | Query transaction by transaction hash |
+| [block](#bhpcli-query-block)         | Query block information by transaction height                                                 |
+| [txs](#bhpcli-query-txs)         | Paging query transactions by search criteria.                                   |
+| [tendermint-validator-set](#bhpcli-query-tendermint-validator-set)     | Query validator details by height                  |
+| [account](#bhpcli-query-account)           | Query account details |
+| [supply](#bhpcli-query-supply)           | Query the total supply of coins of the chain |
+
 ## bhpcli query tx
+
 Query transaction by transaction hash.
 ```shell script
 bhpcli query tx [hash] [flags]
@@ -106,7 +118,8 @@ Response
 ```
 
 ## bhpcli query block
-在给定高度获取区块的验证数据。如果未指定高度，则将使用最新高度作为默认高度。
+
+Obtain the verification data of the block at a given height. If the height is not specified, the latest height will be used as the default height.
 
 Query block information by transaction height.
 ```shell script
@@ -262,7 +275,9 @@ Response
 	}
 }
 ```
+
 ## bhpcli query txs
+
 Paging query transactions by search criteria.
 ```shell script
 bhpcli query txs [flags]
@@ -369,7 +384,9 @@ Response
 	}]
 }
 ```
+
 ## bhpcli query tendermint-validator-set
+
 Query validator details by height
 ```shell script
 bhpcli query tendermint-validator-set [height] [flags]
@@ -405,7 +422,9 @@ Response
 	}]
 }
 ```
+
 ## bhpcli query account
+
 Query account details
 ```shell script
 bhpcli query account [address] [flags]
@@ -433,7 +452,9 @@ Response
 	}
 }
 ```
+
 ## bhpcli query supply
+
 Query the total supply of coins of the chain
 ```shell script
 bhpcli query supply [flags]

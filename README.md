@@ -4,7 +4,7 @@
 
 ## Install
 
-See the [install instructions](https://docs.bhpnet.io/getting-start/join-bhp-mainnet.html).
+See the [install instructions](https://docs.bhpnet.io/getting-start/install-bhp.html).
 
 ## Contribute
 

@@ -4,9 +4,9 @@ order: 5
 # query
 The `bhpcli query` command can query data on the chain.
 
-## 可用命令
+## Available Subommands
 
-| 名称                               | 描述                                                         |
+| Name                               | Description                                                         |
 | ---------------------------------- | ------------------------------------------------------------ |
 | [tx](#bhpcli-query-tx)           | Query transaction by transaction hash |
 | [block](#bhpcli-query-block)         | Query block information by transaction height                                                 |

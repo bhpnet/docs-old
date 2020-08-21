@@ -4,9 +4,9 @@ order: 6
 
 # tx
 
-## 可用命令
+## Available Subommands
 
-| 名称                               | 描述                                                         |
+| Name                               | Description                                                        |
 | ---------------------------------- | ------------------------------------------------------------ |
 | [send](#bhpcli-tx-send)           | Sending tokens to another address, this command includes generate, sign and broadcast steps|
 | [sign](#bhpcli-tx-sign)         | Sign transactions in generated offline file.                                                |

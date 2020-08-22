@@ -3,7 +3,8 @@ order: 3
 ---
 
 # Join The Testnet
-有关最新测试网络的信息，请参阅[测试网络存储库](#TODO)，包括要使用的正确版本的BHP以及有关创世纪文件的详细信息。
+
+See the [testnet repo](https://github.com/bhpnet/bhp) for information on the latest testnet, including the correct version of Gaia to use and details about the genesis file.
 
 :::tip
 Requirements: [install bhp](install-bhp.md)

@@ -2,38 +2,38 @@
 order: 5
 ---
 
-# Export
+# Export Blockchain State
 
-BHP可以导出区块链状态并将其输出为json格式的字符串，该字符串可用作新区块链的创世文件。
+BHP can export the blockchain state and output to a json-format string which can be used as the genesis file of a new blockchain.
 
 ````shell script
 bhpd export [flags]
 ````
 
-标识
+Flags
 
-| 名称，速记        | 类型   | 必须 | 默认值       | 描述                                                                               |
-| ----------------- | ------ | ---- | ------------ | ---------------------------------------------------------------------------------- |
-| --for-zero-height | bool   |      | false        | 导出数据之前做一些清理性的工作，如果不想以导出的数据启动一条新链，可以不加这个标识 |
-| --height          | uint   |      | 0            | 从指定的高度导出，默认值为0表示导出当前高度状态                                    |
-| --home            | string |      | $HOME/.iris  | 指定存储配置和区块链数据的目录                                                     |
-| --jail-whitelist     | strings |      | genesis.json | 导出未监禁的验证者列表 |
+| Name, shorthand   | type   | Required | Default      | Description                                                  |
+| ----------------- | ------ | -------- | ------------ | ------------------------------------------------------------ |
+| --for-zero-height | bool   |          | false        | Do some clean up work before exporting state. If you want to use the exported state to start a new blockchain, please add this flag. Otherwise, just leave out it |
+| --height          | uint   |          | 0            | Export state from a particular height, default value is 0 which means to export the latest state |
+| --home            | string |          | $HOME/.bhpd  | Specify the directory which stores node config and blockchain data |
+| --jail-whitelist     | strings |        |  |  List of validators to not jail state export                        |
 
-## 示例
+## Examples
 
-导出当前的区块链状态
+Export the current blockchain state
 
 ```bash
 bhpd export --home=<path-to-your-home>
 ```
 
-从特定高度导出区块链状态，该高度必须是现有快照高度
+Export blockchain state from a particular height, the height must be an existing snapshot height
 
 ```bash
 bhpd export --height 10000 --home=<path-to-your-home>
 ```
 
-如果想导出指定高度的区块链状态，并且以这个状态启动一条新链，可以尝试这个命令
+If you want to export the blockchain state from a particular height and use the exported state as genesis state of another blockchain
 
 ```bash
 bhpd export --height 10000 --for-zero-height --home=<path-to-your-home>

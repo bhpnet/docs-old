@@ -19,10 +19,6 @@ bhpd可执行程序是运行BHP节点的入口，包括验证人节点和其他�
 - 带宽: 20Mbps
 - 允许TCP端口26656和26657的所有传入连接
 
----
-order: 6
----
-
 # 主目录
 
 主目录是bhp节点的工作目录。主目录包含所有配置信息和节点运行的所有数据。
@@ -40,8 +36,6 @@ BHP节点的数据存储在主目录的“ data”目录中，包括区块链数
 genesis.json定义了创世块数据，该数据定义了系统参数，例如chain_id，共识参数，初始帐户通证分配，验证人的创建以及各模块的参数。详细信息参见[genesis-file](../concepts/genesis.md)。
 
 ### node_key.json
-
-node_key.json is used to store the node's key. The node-id queried by `bhpd tendermint show-node-id` is derived by the key, which is used to indicate the unique identity of the node. It is used in p2p connection.
 
 node_key.json用于存储节点的密钥。`bhpd tendermint show-node-id`查询的节点ID由该密钥派生，该ID是节点的唯一标识。它用于p2p连接。
 

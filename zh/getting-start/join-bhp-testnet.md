@@ -3,7 +3,7 @@ order: 3
 ---
 
 # 加入公共测试网
-有关最新测试网络的信息，请参阅[测试网络存储库](#TODO)，包括要使用的正确版本的BHP以及有关创世纪文件的详细信息。
+有关最新测试网络的信息，请参阅[测试网络存储库](https://github.com/bhpnet/bhp)，包含了所使用的BHP的正确版本和genesis文件。
 
 :::tip
 需要先 [安装 bhp](install-bhp.md)

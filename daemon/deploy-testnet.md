@@ -6,8 +6,8 @@ order: 3
 
 ## Single Node Testnet
 Requirements:
-- [安装 bhp](../getting-start/install-bhp.md)
-- [安装 `jq`](https://stedolan.github.io/jq/download/) (optional)
+- [install bhp](../getting-start/install-bhp.md)
+- [install `jq`](https://stedolan.github.io/jq/download/) (optional)
 
 ```shell script
 # You can run all of these commands from your home directory

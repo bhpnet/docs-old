@@ -4,47 +4,49 @@ order: 7
 
 # gov
 
-该模块提供了[链上治理](../concepts/governance.md)的基本功能。
+This module provides the basic functionalities for [Governance](../concepts/governance.md).
 
-## 可用命令
+## Available Commands
 
-| 名称                                            | 描述                                              |
+| Name                                            | Description                                              |
 | ----------------------------------------------- | ------------------------------------------------- |
-| [query gov proposal](#bhpcli-query-gov-proposal)   | 查询单个提案的详细信息                       |
-| [query gov proposals](#bhpcli-query-gov-proposals) | 按条件查询提案                              |
-| [query gov vote](#bhpcli-query-gov-vote)           | 查询投票                                   |
-| [query gov votes](#bhpcli-query-gov-votes)         | 按条件查询投票                                    |
-| [query gov param](#bhpcli-query-gov-param)           | 指定参数类型查询治理过程的参数。                    |
-| [query gov params](#bhpcli-query-gov-params)         | 查询治理过程的所有参数。                           |
-| [query gov proposer](#bhpcli-query-gov-proposer)           | 查询一个提议信息                            |
-| [query gov deposit](#bhpcli-query-gov-votes)         | 查询指定提案的抵押信息。              |
-| [query gov deposits](#bhpcli-query-gov-deposits)           | 查询指定提案的所有抵押信息。      |
-| [query gov tally](#bhpcli-query-gov-tally)         | 查询提案投票的统计信息        |
-| [tx gov submit-proposal](#bhpcli-tx-gov-submit-proposal) | 提交提案以及初始化抵押金额           |
-| [tx gov deposit](#bhpcli-tx-gov-deposit)                 | 为有效的提案抵押通证                |
-| [tx gov vote](#bhpcli-tx-gov-vote)                       | 为有效的提案投票，选项：Yes/No/NoWithVeto/Abstain |
+| [query gov proposal](#bhpcli-query-gov-proposal)   | Query details for a proposal.     |
+| [query gov proposals](#bhpcli-query-gov-proposals) | Query proposals by conditions          |
+| [query gov vote](#bhpcli-query-gov-vote)           | Query details for a single vote on a proposal given its identifier. |
+| [query gov votes](#bhpcli-query-gov-votes)         | Query vote details for a single proposal by its identifier.  |
+| [query gov param](#bhpcli-query-gov-param)           | Query the all the parameters for the governance process.  |
+| [query gov params](#bhpcli-query-gov-params)         | Query the all the parameters for the governance process.   |
+| [query gov proposer](#bhpcli-query-gov-proposer)           | Query which address proposed a proposal with a given ID  |
+| [query gov deposit](#bhpcli-query-gov-deposit)         | Query details for a single proposal deposit on a proposal by its identifier. |
+| [query gov deposits](#bhpcli-query-gov-deposits)           | Query details for all deposits on a proposal.  |
+| [query gov tally](#bhpcli-query-gov-tally)         | Query tally of votes on a proposal.  |
+| [tx gov submit-proposal](#bhpcli-tx-gov-submit-proposal) | Submit a proposal along with an initial deposit.  |
+| [tx gov deposit](#bhpcli-tx-gov-deposit)                 | Query details for a single proposal deposit on a proposal by its identifier.    |
+| [tx gov vote](#bhpcli-tx-gov-vote)                       | Submit a vote for an active proposal, options: Yes/No/NoWithVeto/Abstain |
 
 ## bhpcli query gov proposal
 
-查询提案的详细信息。
+Query details for a proposal. 
 
 ```shell script
 bhpcli query gov proposal [proposal-id] [flags]
 ```
-**标识：**
 
-| 名称, 速记    | 类型 | 必须 | 默认 | 描述     |
-| ------------- | ---- | -------- | ---- | -------- |
-| proposal-id | uint | 是       |      | 提案的Id |
+**Flags:**
+
+| Name, shorthand | Type | Required | Default | Description            |
+| --------------- | ---- | -------- | ------- | ---------------------- |
+| proposal-id   | uint | Yes      |         | Identity of a proposal |
+
 ## bhpcli query gov proposals
 
-按条件查询提案。
+Query proposals by conditions    
 
 ```shell script
 bhpcli query gov proposals [flags]
 ```
 
-输出
+Response
 
 ```shell script
 [
@@ -78,43 +80,47 @@ bhpcli query gov proposals [flags]
 ]
 ```
 
-**标识：**
+**Flags:**
 
-| 名称, 速记  | 类型    | 必须 | 默认 | 描述                                  |
+| Name, shorthand | Type    | Required | Default | Description                                                         |
 | ----------- | ------- | -------- | ---- | ------------------------------------- |
-| --node | host:port |         |      | RPC接口，默认 "tcp://localhost:26657"          |
-| --depositor | Address |          |      | 按抵押人地址过滤提案                  |
-| --limit     | uint    |          |      | 限制返回提案的个数， 默认返回所有提案 |
-| --status    | string  |          |      | 按状态过滤提案 (deposit_period/voting_period/passed/rejected)    |
-| --voter     | Address |          |      | 按投票人地址过滤提案                  |
+| --node | host:port |         |      | RPC port，default "tcp://localhost:26657"          |
+| --depositor | Address |          |      | Filter proposals by depositor address       |
+| --limit     | uint    |          |      | Limit to the latest [number] of proposals. Default to all proposals |
+| --status    | string  |          |      | Filter proposals by status (deposit_period/voting_period/passed/rejected)    |
+| --voter     | Address |          |      | Filter proposals by voter address              |
+
 ## bhpcli query gov vote
 
-查询投票信息。
+Query details for a single vote on a proposal given its identifier.
 
 ```shell script
 bhpcli query gov vote [proposal-id] [voter-addr] [flags]
 ```
 ## bhpcli query gov votes
 
-查询提案的所有投票信息。
+Query vote details for a single proposal by its identifier.
 
 ```shell script
 bhpcli query gov votes [proposal-id] [flags]
 ```
 ## bhpcli query gov param
 
-指定参数类型查询治理过程的参数。 (参数类型为voting：投票时长，tallying：统计参数，deposit：抵押参数)
+Query the all the parameters for the governance process.
 
 ```shell script
 bhpcli query gov param [param-type] [flags]
 ```
-示例
+
+Example
+
 ```shell script
 bhpcli query gov param voting
 {
     "voting_period":"172800000000000"
 }
 ```
+
 
 ```shell script
 bhpcli query gov param tallying
@@ -140,7 +146,7 @@ bhpcli query gov param deposit
 
 ## bhpcli query gov params
 
-查询治理过程的所有参数。        
+Query the all the parameters for the governance process.      
 
 ```shell script
 bhpcli query gov params [flags]
@@ -170,13 +176,13 @@ bhpcli query gov params [flags]
 
 ## bhpcli query gov proposer
 
-查询一个提议信息
+Query which address proposed a proposal with a given ID
 
 ```shell script
 bhpcli query gov proposer [proposal-id] [flags]
 ```
 
-响应
+Response
 
 ```shell script
 {
@@ -186,19 +192,19 @@ bhpcli query gov proposer [proposal-id] [flags]
 ```
 ## bhpcli query gov deposit
 
-查询指定提案的抵押信息。
+Query details for a single proposal deposit on a proposal by its identifier.
 
 ```shell script
 bhpcli query gov deposit [proposal-id] [depositer-addr] [flags]
 ```
 
-示例
+Example
 
 ```shell script
 bhpcli query gov deposit 1 bhp1t7gmv3qraqc7urcp2jqk2wv54p9jrevn9h3qhs
 ```
 
-输出
+Response
 
 ```shell script
 {
@@ -215,19 +221,20 @@ bhpcli query gov deposit 1 bhp1t7gmv3qraqc7urcp2jqk2wv54p9jrevn9h3qhs
 
 ## bhpcli query gov deposits
 
-查询指定提案的所有抵押信息。
+Query details for all deposits on a proposal.
 
 ```shell script
 bhpcli query gov deposits [proposal-id] [flags]
 ```
 
-示例
+Example
 
 ```shell script
 bhpcli query gov deposits 1
 ```
 
-响应
+Response
+
 ```shell script
 [
     {
@@ -255,19 +262,19 @@ bhpcli query gov deposits 1
 
 ## bhpcli query gov tally
 
-查询提案投票的统计信息
+Query tally of votes on a proposal.
 
 ```shell script
 bhpcli query gov tally [proposal-id] [flags]
 ```
 
-示例
+Example
 
 ```shell script
 bhpcli query gov tally 1
 ```
 
-响应
+Response
 
 ```shell script
 {
@@ -280,7 +287,7 @@ bhpcli query gov tally 1
 
 ## bhpcli tx gov submit-proposal
 
-提交提案以及初始化抵押金额。
+Submit a proposal along with an initial deposit.
 
 ```shell script
  bhpcli tx gov submit-proposal --proposal="path/to/proposal.json" --from mykey
@@ -290,23 +297,26 @@ bhpcli query gov tally 1
 bhpcli tx gov submit-proposal --title="Test Proposal" --description="My awesome proposal" --type="Text" --deposit="10test" --from mykey
 ```
 
-**标识：**
+**Flags:**
 
-| 名称, 速记               | 类型   | 必须 | 默认  | 描述                                                                                           |
+| Name, shorthand          | Type   | Required | Default | Description                                                                                           |
 | ------------------------ | ------ | -------- | ----- | ---------------------------------------------------------------------------------------------- |
-| --deposit                | Coin   | 是       |       | 初始抵押金额(至少最小抵押金额的30% of)                                                         |
-| --description            | string | 是       |       | 提案的描述信息                                                                                 |
-| --param                  | string |          |       | 提案修改的参数，例如`mint/Inflation=0.050`                                                     |
-| --title                  | string | 是       |       | 提案的标题                                                                                     |
-| --type                   | string | 是       |       | 提案的类型（PlainText/Parameter/SoftwareUpgrade/SoftwareHalt/CommunityTaxUsage/TokenAddition） |                                                                                 |                                                                      |                                                                                |
+| --deposit                | Coin   | Yes |       | Initial deposit of the proposal        |
+| --description            | string | Yes      |         | Description of the proposal                                              |
+| --param                  | string |          |         | On-chain Parameter to be changed, eg. mint/Inflation=0.050                                                     |
+| --title                  | string | Yes      |         | Title of the proposal                                                   |
+| --type                   | string | Yes      |         | ProposalType of the proposal（PlainText/Parameter/SoftwareUpgrade/SoftwareHalt/CommunityTaxUsage/TokenAddition） |       |  |                                                                       
 
-### 提交文本交易提案
+## Submit a Text Proposal
 
-示例
+Example
+
 ```shell script
 bhpcli tx gov submit-proposal --title="BHP Test Proposal" --description="My awesome proposal" --type="Text" --deposit="10abhp" --fees="2abhp" --from node0 --home /root/bhp/build/node0/bhpcli --chain-id=testing
 ```
-响应
+
+Response
+
 ```shell script
 {
     "height":"0",
@@ -333,21 +343,24 @@ bhpcli tx gov submit-proposal --title="BHP Test Proposal" --description="My awes
 }
 ```
 
-### 提交参数修改提案
+### Submit a Parameter Change Proposal
 
 ## bhpcli tx gov deposit
 
-为有效的提案抵押通证。
+Submit a deposit for an active proposal.
 
 ```shell script
 bhpcli tx gov deposit [proposal-id] [deposit] [flags]
 ```
-示例
+
+Example
 
 ```shell script
 bhpcli tx gov deposit 1 10abhp --from=node1 --fees=2abhp --chain-id=testing --home /root/bhp/build/node1/bhpcli
 ```
-响应
+
+Response
+
 ```shell script
 {
     "height":"0",
@@ -375,30 +388,33 @@ bhpcli tx gov deposit 1 10abhp --from=node1 --fees=2abhp --chain-id=testing --ho
 ```
 ## bhpcli tx gov vote
 
-对有效的提案投票，选项：Yes/No/NoWithVeto/Abstain。
+Submit a vote for an active proposal, options: Yes/No/NoWithVeto/Abstain
 
 :::tip
-[No VS NoWithVeto](../concepts/governance.md#抵押退款和销毁)
+[No VS NoWithVeto](../concepts/governance.md)
 
-在投票期内，只有验证人和委托人可以对提案进行投票。
+Only validators and delegators can vote for proposals in the voting period.
 :::
 
 ```shell script
 bhpcli tx gov vote [proposal-id] [option] [flags]
 ```
 
-**标识：**
+**Flags:**
 
-| 名称, 速记    | 类型   | 必须 | 默认 | 描述                            |
-| ------------- | ------ | -------- | ---- | ------------------------------- |
-| option      | string | 是       |      | 选项：Yes/No/NoWithVeto/Abstain |
-| proposal-id | uint   | 是       |      | 提案Id                          |
+| Name, shorthand | Type   | Required | Default | Description                            |
+| --------------- | ------ | -------- | ------- | -------------------------------------- |
+| option        | string | Yes      |         | Vote option: Yes/No/NoWithVeto/Abstain |
+| proposal-id   | uint   | Yes      |         | Identity of a proposal                 |
 
-示例
+Example
+
 ```shell script
 bhpcli tx gov vote 1 Yes --from node1 --fees=2abhp --chain-id=testing --home /root/bhp/build/node1/bhpcli
 ```
-响应
+
+Response
+
 ```shell script
 {
     "height":"0",
@@ -424,7 +440,9 @@ bhpcli tx gov vote 1 Yes --from node1 --fees=2abhp --chain-id=testing --home /ro
     ]
 }
 ```
-如果查询交易显示以下结果，可能是抵押金额不够，导致投票未开始
+
+If the query transaction shows the following results, it may be that the mortgage amount is insufficient, causing the vote not to start
+
 ```shell script
 {
     "height":"68704",

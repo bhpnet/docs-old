@@ -10,7 +10,7 @@ distribution模块用于管理自己的 Staking 收益。
 
 | 名称                                                            | 描述                                                                                           |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [query distribution params](#bhpcli-query-distribution-params)      | 查询提现地址                                                                                   |
+| [query distribution params](#bhpcli-query-distribution-params)      | 查询奖励参数                                                                          |
 | [query distribution validator-outstanding-rewards](#bhpcli-query-distribution-validator-outstanding-rewards)       | 查询指定验证者分配未结清(未提取)的奖励情况                                                              |
 | [query distribution commission](#bhpcli-query-distribution-commission) | 从委托人处查询该验证人的佣金奖励。                                                                          |
 | [query distribution slashes](#bhpcli-query-distribution-slashes)      | 查询指定验证者在给定区块范围内的监禁记录。 |
@@ -253,6 +253,8 @@ bhpcli tx distribution withdraw-rewards bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3
 ```
 
 ## bhpcli tx distribution withdraw-all-rewards
+
+委托者取回自己的所有奖励
 
 ```shell script
 bhpcli tx distribution withdraw-all-rewards [flags]

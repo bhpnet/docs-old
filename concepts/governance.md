@@ -12,7 +12,7 @@ The governance process is divided in a few steps that are outlined below:
 * **Proposal submission:** Proposal is submitted to the blockchain with a 
   deposit.
 * **Vote:** Once deposit reaches a certain value (`MinDeposit`), proposal is 
-  confirmed and vote opens. Bonded Atom holders can then send `TxGovVote` 
+  confirmed and vote opens. Bonded bhp holders can then send `TxGovVote` 
   transactions to vote on the proposal.
 * If the proposal involves a software upgrade:
   * **Signal:** Validators start signaling that they are ready to switch to the
@@ -24,7 +24,7 @@ The governance process is divided in a few steps that are outlined below:
 
 ### Right to submit a proposal
 
-Any Atom holder, whether bonded or unbonded, can submit proposals by sending a 
+Any bhp holder, whether bonded or unbonded, can submit proposals by sending a 
 `TxGovProposal` transaction. Once a proposal is submitted, it is identified by 
 its unique `proposalID`.
 
@@ -68,19 +68,19 @@ When a the a proposal finalized, the coins from the deposit are either refunded 
 ### Participants
 
 *Participants* are users that have the right to vote on proposals. On the 
-Cosmos Hub, participants are bonded Atom holders. Unbonded Atom holders and 
+BHP network, participants are bonded bhp holders. Unbonded bhp holders and 
 other users do not get the right to participate in governance. However, they 
 can submit and deposit on proposals.
 
 Note that some *participants* can be forbidden to vote on a proposal under a 
 certain validator if:
-* *participant* bonded or unbonded Atoms to said validator after proposal 
+* *participant* bonded or unbonded bhp to said validator after proposal 
   entered voting period.
 * *participant* became validator after proposal entered voting period.
 
-This does not prevent *participant* to vote with Atoms bonded to other 
-validators. For example, if a *participant* bonded some Atoms to validator A 
-before a proposal entered voting period and other Atoms to validator B after 
+This does not prevent *participant* to vote with bhp bonded to other 
+validators. For example, if a *participant* bonded some bhp to validator A 
+before a proposal entered voting period and other bhp to validator B after 
 proposal entered voting period, only the vote under validator B will be 
 forbidden.
 
@@ -127,7 +127,7 @@ that proposals are accepted if the proportion of `Yes` votes (excluding
 proportion of `NoWithVeto` votes is inferior to 1/3 (excluding `Abstain` 
 votes).
 
-Proposals can be accepted before the end of the voting period if they meet a special condition. Namely, if the ratio of `Yes` votes to `InitTotalVotingPower`exceeds 2:3, the proposal will be immediately accepted, even if the `Voting period` is not finished. `InitTotalVotingPower` is the total voting power of all bonded Atom holders at the moment when the vote opens. 
+Proposals can be accepted before the end of the voting period if they meet a special condition. Namely, if the ratio of `Yes` votes to `InitTotalVotingPower`exceeds 2:3, the proposal will be immediately accepted, even if the `Voting period` is not finished. `InitTotalVotingPower` is the total voting power of all bonded bhp holders at the moment when the vote opens. 
 This condition exists so that the network can react quickly in case of urgency.
 
 ### Inheritance

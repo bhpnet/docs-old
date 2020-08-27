@@ -78,7 +78,6 @@ bhpcli tx staking create-validator \
 bhpcli tx staking edit-validator \
 --website "https://bhpa.io" \
 --from demokey \
---gas-prices="2.5abhp" \
 --chain-id "testing" \
 --gas=auto \
 --gas-prices="2.5abhp" \

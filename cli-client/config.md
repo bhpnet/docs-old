@@ -9,9 +9,9 @@ bhpcli config <key> [value] [flags]
 ```
 Examples
 ```shell script
-gaiacli config chain-id testing
+bhpcli config chain-id testing
 ```
 Response
 ```shell script
-configuration saved to /root/.gaiacli/config/config.toml
+configuration saved to /root/.bhpcli/config/config.toml
 ```                            __                 

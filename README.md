@@ -1,6 +1,6 @@
 # BHP Documentation
 
-![bhp](./img/bhp.png)
+![bhp](./img/bhp.jpg)
 
 ## Install
 

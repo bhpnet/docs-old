@@ -1,6 +1,6 @@
 # BHP 文档
 
-![bhp](./img/bhp.png)
+![bhp](./img/bhp.jpg)
 
 ## 关于BHP
 

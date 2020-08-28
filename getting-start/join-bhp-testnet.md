@@ -115,7 +115,7 @@ View the status of the network with the [BHP Explorer](https://scan.bhpnet.io/)
 
 ### Create a Wallet
 
-You can [create a new wallet](../cli-client/keys.md#create-a-new-key) or [import an existing one](../cli-client/keys.md#recover-an-existing-key-from-seed-phrase), then get some IRIS from the exchanges or anywhere else into the wallet you just created, .e.g.
+You can [create a new wallet](../cli-client/keys.md#create-a-new-key) or [import an existing one](../cli-client/keys.md#recover-an-existing-key-from-seed-phrase), then get some bhp from the exchanges or anywhere else into the wallet you just created, .e.g.
 
 ```bash
 # create a new wallet

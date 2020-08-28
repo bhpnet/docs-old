@@ -10,9 +10,9 @@ bhpcli config <key> [value] [flags]
 ```
 示例
 ```shell script
-gaiacli config chain-id testing
+bhpcli config chain-id testing
 ```
 响应
 ```shell script
-configuration saved to /root/.gaiacli/config/config.toml
+configuration saved to /root/.bhpcli/config/config.toml
 ```                                             

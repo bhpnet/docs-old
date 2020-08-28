@@ -101,7 +101,7 @@ p2pprotocol: 7
 ### 构建和初始化
 ```shell script
 # Clone the bhp repo
-git clone https://github.com/bhpnet/bhp.git
+git clone -b <latest-release-tag> https://github.com/bhpnet/bhp
 
 # Work from the SDK repo
 cd bhp

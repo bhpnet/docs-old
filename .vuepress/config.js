@@ -65,8 +65,10 @@ module.exports = {
                 },
                 algolia: {},
                 nav: [
-                    { text: 'Back to BHP', link: 'https://bhpa.io' },
-                    { text: 'BHP Github', link: 'https://github.com/bhpnet' }
+                    { text: 'Back to BHP', link: 'https://bhpnet.io' },
+                    { text: 'BHP Github', link: 'https://github.com/bhpnet' },
+                    { text: 'BHP Faucet', link: 'https://faucet.bhpnet.io/' },
+                    { text: 'BHP Wiki', link: 'https://wiki.bhpnet.io' }
                 ],
                 sidebar:sidebar("", [
                     ["BHP", "/bhp"],
@@ -96,9 +98,10 @@ module.exports = {
                 // 当前 locale 的 algolia docsearch 选项
                 algolia: {},
                 nav: [
-                    { text: 'BHP 官网', link: 'https://bhpa.io' },
+                    { text: 'BHP 官网', link: 'https://bhpnet.io' },
                     { text: 'BHP Github', link: 'https://github.com/bhpnet' },
-                    { text: 'BHP FAQ', link: '/zh/faq/staking-faq.html' }
+                    { text: 'BHP Faucet', link: 'https://faucet.bhpnet.io/' },
+                    { text: 'BHP Wiki', link: 'https://wiki.bhpnet.io' }
                 ],
                 sidebar: sidebar("", [
                     ["BHP简介", "/zh/bhp"],

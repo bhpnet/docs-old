@@ -33,9 +33,9 @@ go version
 请确保您的服务器可以访问 google.com，因为我们的项目依赖于google提供的某些库（如果您无法访问google.com，也可以尝试添加代理：`export GOPROXY=https://goproxy.cn`）
 
 ```bash
-git clone https://github.com/bhpnet/bhp
+git clone -b <latest-release-tag> https://github.com/bhpnet/bhp
 cd bhp
-make install && make install
+make install
 ```
 如果环境变量配置无误，则通过运行以上命令即可完成BHP的安装。现在检查您的bhp版本是否正确：
 

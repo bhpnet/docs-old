@@ -14,4 +14,4 @@ gaiacli config chain-id testing
 Response
 ```shell script
 configuration saved to /root/.gaiacli/config/config.toml
-```                                             
+```                            __                 

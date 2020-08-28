@@ -48,5 +48,5 @@ Each genesis state starts with a list of account balances. Social consensus on t
 ## Gentxs
 
 Gentxs contains the transaction set of creating validators in genesis block.
-The IRISnet provides robust tools for bootstrapping the identities that will start chain via the `gen-tx` process. `gen-tx` or a Genesis Transaction is cryptographically signed transactions that are executed during chain initialization that generate a starting set of validators.
+The BHP provides robust tools for bootstrapping the identities that will start chain via the `gen-tx` process. `gen-tx` or a Genesis Transaction is cryptographically signed transactions that are executed during chain initialization that generate a starting set of validators.
 The gen-txs are artifacts that prove that the holders of accounts consent in launching the network and that they put capital at risk in the process.

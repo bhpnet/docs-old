@@ -16,7 +16,7 @@ It's recommended that you run BHP nodes on Linux Server.
 - Memory: 6GB
 - Disk: 256GB SSD
 - OS: Ubuntu 16.04 LTS +
-- Bandwidth: 20Mbps
+- Bandwidth: 10Mbps
 - Allow all incoming connections on TCP port 26656 and 26657
 
 ## Home Directory

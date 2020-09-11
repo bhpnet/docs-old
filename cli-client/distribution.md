@@ -222,7 +222,7 @@ bhpcli tx distribution withdraw-rewards [validator-addr] [flags]
 Example
 
 ```shell script
-bhpcli tx distribution withdraw-rewards bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y --from node0 --fees=2abhp --home /root/bhp/build/node0/bhpcli --chain-id=testing
+bhpcli tx distribution withdraw-rewards bhpvaloper1kqezagrup445e8mv4qpy003asfwq0ackkxmrf0 --commission --from link --fees=500000abhp --chain-id testing
 ```
 
 Response

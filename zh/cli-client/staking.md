@@ -2,18 +2,21 @@
 # 目录
 1. [交易](#交易)
 2. [查询](#查询)
+
 ## 交易
 | **命令**                   | **解释**                                  |
 | -------------------------- | ---------------------------------------- |
-| [create-validator](#create-validator)  | 创建一个新的验证者              |
-| [edit-validator](#edit-validator)      | 编辑一个存在的验证者            |
-| [delegate](#delegate)                  | 委托bhp到验证者                |
-| [redelegate](#redelegate)              | 转移委托从一个验证者到另一个验证者 |
-| [unbound](#unblund)                    | 取消委托                       |
+| [create-validator](#bhpcli-tx-staking-create-validator)  | 创建一个新的验证者              |
+| [edit-validator](#bhpcli-tx-staking-edit-validator)      | 编辑一个存在的验证者            |
+| [delegate](#bhpcli-tx-staking-delegate)                  | 委托bhp到验证者                |
+| [redelegate](#bhpcli-tx-staking-redelegate)              | 转移委托从一个验证者到另一个验证者 |
+| [unbond](#bhpcli-tx-staking-unbond)                    | 取消委托                       |
 
 
-### create-validator
-#### 解释：在已有网络上创建一个新的验证者。
+## bhpcli tx staking create-validator
+
+解释：在已有网络上创建一个新的验证者。
+
 ```bash
 --amount 自委托的数量
 --pukey 节点公钥
@@ -24,7 +27,9 @@
 --commission-max-change-rate 验证者修改佣金比例时最大改变量比例
 --min-self-delegation 最少委托的数量
 ```
-#### 完整演示命令如下：
+
+示例
+
 ```bash
 bhpcli tx staking create-validator \
 --amount=2000000000000abhp \
@@ -41,7 +46,9 @@ bhpcli tx staking create-validator \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### 输出
+
+响应
+
 ```json
 {
     "height": "0",
@@ -67,23 +74,39 @@ bhpcli tx staking create-validator \
     ]
 }
 ```
-### edit-validator
-#### 解释：可以编辑验证人信息，如网站，不修改的信息，保持创建时的值。
+
+## bhpcli tx staking edit-validator
+
+修改验证的的参数，包括佣金比率，验证人节点名称以及其他描述信息。解释：不修改的信息，保持创建时的值。
+
 ```bash
---website 设置网址
---identity 设置 https://keybase.io 上用户的头像
+bhpcli tx staking edit-validator [flags]
 ```
-#### 完整演示命令如下：
+
+**标志：**
+
+| 名称，速记        | 类型   | 必须 | 默认 | 描述               |
+| ----------------- | ------ | ---- | ---- | ------------------ |
+| --commission-rate | float  |      | 0.0  | 佣金比率           |
+| --moniker         | string |      |      | 验证人名称         |
+| --identity        | string |      |      | 身份签名，头像采用 keybase.io上用户头像，具体可查看区块浏览器的官网头像设置方法         |
+| --website         | string |      |      | 网址               |
+| --details         | string |      |      | 验证人节点详细介绍 |
+
+示例
+
 ```bash
 bhpcli tx staking edit-validator \
---website "https://bhpa.io" \
+--website "https://bhpnet.io" \
 --from demokey \
 --chain-id "testing" \
 --gas=auto \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### 输出：
+
+响应
+
 ```json
 {
   "height": "0",
@@ -109,9 +132,13 @@ bhpcli tx staking edit-validator \
   ]
 }
 ```
-### delegate
-#### 解释：委托BHP到验证者
-#### 完整演示命令如下：其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为验证者地址
+## bhpcli tx staking delegate
+
+解释：委托BHP到验证者
+
+示例
+
+其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为验证者地址
 ```bash
 bhpcli tx staking delegate \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
@@ -122,7 +149,9 @@ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### 输出：
+
+响应
+
 ```json
 {
   "height": "0",
@@ -148,9 +177,13 @@ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
   ]
 }
 ```
-### redelegate
-#### 解释：转移委托从一个验证者到另一个验证者
-#### 演示命令如下：其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为原验证者地址，bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs为新验证者地址。
+## bhpcli tx staking redelegate
+
+解释：转移委托从一个验证者到另一个验证者
+
+示例
+
+其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为原验证者地址，bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs为新验证者地址。
 ```bash
 bhpcli tx staking redelegate \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
@@ -162,7 +195,9 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### 输出：
+
+响应
+
 ```json
 {
   "height": "0",
@@ -188,9 +223,11 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs \
   ]
 }
 ```
-### unbound
-#### 解释：从验证者取消委托，默认解除周期是2周
-#### 演示命令如下：其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y是验证者地址
+## bhpcli tx staking unbond
+
+解释：从验证者取消委托，默认解除周期是2周
+
+演示命令如下：其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y是验证者地址
 ```bash
 bhpcli tx staking unbond \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
@@ -201,7 +238,9 @@ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### 输出
+
+响应
+
 ```json
 {
   "height": "0",
@@ -228,31 +267,37 @@ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 }
 
 ```
+
 ## 查询
+
 | **命令**                    | **解释**                                                    |
 | -------------------------- | ----------------------------------------------------------- |
-| [delegation](#delegation)  | 查询委托者在一个特定验证者上的委托                  |
-|[delegations](#delegations)                | 查询一个委托者的所有委托记录                                |
-| [unbonding-delegation](#unbonding-delegation)       | 使用委托者地址查询一个验证者上所有解除委托的记录         |
-| [unbonding-delegations](#unbonding-delegations)      | 使用委托者地址查询所有取消委托的记录                        |
-| [redelegation](#redelegation)               | 使用委托者地址和前、后验证者地址查询重新委托记录     |
-| [redelegations](#redelegations)              | 使用委托者地址查询所有转委托的记录                        |
-| [validator](#validator)                  | 查询一个验证者的信息                                     |
-| [validators](#validators)                 | 查询网络上所有验证者的信息                               |
-| [delegations-to](#delegations-to)             | 查询一个验证者上的所有委托记录                           |
-| [unbonding-delegations-from](#unbonding-delegations-from) | 查询一个验证者上的所有解除委托记录                       |
-| [redelegations-from](#redelegations-from)         | 查询从这个验证者转移的委托记录  |
-| [params](#params)                     | 查询当前staking的参数，如                                   |
-| [pool](#pool)                       | 查询staking池中委托的未委托的token数量                   |
+| [delegation](#delegatbhpcli-query-staking-delegation)  | 查询委托者在一个特定验证者上的委托                  |
+|[delegations](#bhpcli-query-staking-delegations)                | 查询一个委托者的所有委托记录                                |
+| [unbonding-delegation](#bhpcli-query-staking-unbonding-delegation)       | 使用委托者地址查询一个验证者上所有解除委托的记录         |
+| [unbonding-delegations](#bhpcli-query-staking-unbonding-delegations)      | 使用委托者地址查询所有取消委托的记录                        |
+| [redelegation](#bhpcli-query-staking-redelegation)               | 使用委托者地址和前、后验证者地址查询重新委托记录     |
+| [redelegations](#bhpcli-query-staking-redelegations)              | 使用委托者地址查询所有转委托的记录                        |
+| [validator](#bhpcli-query-staking-validator)                  | 查询一个验证者的信息                                     |
+| [validators](#bhpcli-query-staking-validators)                 | 查询网络上所有验证者的信息                               |
+| [delegations-to](#bhpcli-query-staking-delegations-to)             | 查询一个验证者上的所有委托记录                           |
+| [unbonding-delegations-from](#bhpcli-query-staking-unbonding-delegations-from) | 查询一个验证者上的所有解除委托记录                       |
+| [redelegations-from](#bhpcli-query-staking-redelegations-from)         | 查询从这个验证者转移的委托记录  |
+| [params](#bhpcli-query-staking-params)                     | 查询当前staking的参数，如                                   |
+| [pool](#bhpcli-query-staking-pool)                       | 查询staking池中委托的未委托的token数量                   |
 
-### delegation
+## bhpcli query staking delegation
 解释：查询用户在一个特定验证者上的委托bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为验证者地址
-演示命令：
+
+示例
+
 ```bash
 bhpcli query staking delegation \
 $(bhpcli keys show key1 -a) \ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
 ```
-输出：
+
+响应
+
 ```json
 {
   "delegator_address": "bhp1ceccntfep63j7fwrzapk9w0zvw900s39q95z9c",
@@ -261,13 +306,18 @@ $(bhpcli keys show key1 -a) \ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
   "balance": "10000000000"
 }
 ```
-### delegations
-#### 解释:查询一个委托者的所有委托
-#### 演示命令
+## bhpcli query staking delegations
+
+解释:查询一个委托者的所有委托
+
+示例
+
 ```bash
 bhpcli query staking delegations $(bhpcli keys show key1 -a)
 ```
-#### 输出
+
+响应
+
 ```json
 [
   {
@@ -285,15 +335,20 @@ bhpcli query staking delegations $(bhpcli keys show key1 -a)
 ]
 ```
 
-### unbonding-delegation
-#### 解释：使用委托者地址查询一个验证者上所有解除委托的记录
-#### 演示命令
+## bhpcli query staking unbonding-delegation
+
+解释：使用委托者地址查询一个验证者上所有解除委托的记录
+
+示例
+
 ```bash
 bhpcli query staking unbonding-delegation \
  $(bhpcli keys show key1 -a) \
  bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
-#### 输出
+
+响应
+
 ```json
 {
   "delegator_address": "bhp1ceccntfep63j7fwrzapk9w0zvw900s39q95z9c",
@@ -308,13 +363,18 @@ bhpcli query staking unbonding-delegation \
   ]
 }
 ```
-### unbonding-delegations
-#### 解释：查询委托者的所有正在解除委托的记录
-#### 演示命令
+### bhpcli query staking unbonding-delegations
+
+解释：查询委托者的所有正在解除委托的记录
+
+示例
+
 ```bash
- bhpcli query staking unbonding-delegations $(bhpcli keys show key1 -a)
+bhpcli query staking unbonding-delegations $(bhpcli keys show key1 -a)
 ```
-#### 输出
+
+响应
+
 ```json
 [
   {
@@ -343,17 +403,22 @@ bhpcli query staking unbonding-delegation \
   }
 ]
 ```
-### redelegation
-#### 解释：使用委托者地址和前、后验证者地址查询重新委托记录,其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为先前委托者地址，
+### bhpcli query staking redelegation
+
+解释：使用委托者地址和前、后验证者地址查询重新委托记录,其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为先前委托者地址，
 bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs为转移到的委托者地址
-#### 演示命令
+
+示例
+
 ```bash
 bhpcli query staking redelegation \
 $(bhpcli keys show key1 -a) \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
-#### 输出
+
+响应
+
 ```json
 [
   {
@@ -372,13 +437,18 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
   }
 ]
 ```
-### redelegations
-#### 解释:使用委托者地址查询所有转委托的记录
-#### 演示命令：
+## bhpcli query staking redelegations
+
+解释:使用委托者地址查询所有转委托的记录
+
+示例
+：
 ```bash
 bhpcli query staking redelegations $(bhpcli keys show key1 -a)
 ```
-#### 输出：
+
+响应
+
 ```json
 [
   {
@@ -397,14 +467,19 @@ bhpcli query staking redelegations $(bhpcli keys show key1 -a)
   }
 ]
 ```
-### validator
-#### 解释：查询一个给定地址的验证者信息
-#### 演示命令：
+## bhpcli query staking validator
+
+解释：查询一个给定地址的验证者信息
+
+示例
+：
 ```bash
 bhpcli query staking validator \
 bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
-#### 输出：
+
+响应
+
 ```json
 {
   "operator_address": "bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs",
@@ -432,13 +507,18 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
   "min_self_delegation": "1"
 }
 ```
-### validators
-#### 解释：查询网络上所有验证者信息
-#### 演示命令：
+## bhpcli query staking validators
+
+解释：查询网络上所有验证者信息
+
+示例
+：
 ```bash
 bhpcli query staking validators
 ```
-#### 输出：
+
+响应
+
 ```json
 [
     {
@@ -618,13 +698,18 @@ bhpcli query staking validators
     }
 ]
 ```
-### delegations-to
-#### 解释：查询一个验证者上的所有委托记录
-#### 演示命令：
+## bhpcli query staking delegations-to
+
+解释：查询一个验证者上的所有委托记录
+
+示例
+：
 ```bash
 bhpcli query staking delegations-to bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
 ```
-#### 输出：
+
+响应
+
 ```json
 [
   {
@@ -641,13 +726,18 @@ bhpcli query staking delegations-to bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5
   }
 ]
 ```
-### unbonding-delegations-from
-#### 解释：查询一个验证者上的所有解除委托记录 
-#### 演示命令：
+### bhpcli query staking unbonding-delegations-from
+
+解释：查询一个验证者上的所有解除委托记录 
+
+示例
+：
 ```bash
 bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
 ```
-#### 输出：
+
+响应
+
 ```json
 [
   {
@@ -665,13 +755,18 @@ bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavnd
 ]
 
 ```
-### redelegations-from
-#### 解释：查询从这个验证者转移的委托记录
-#### 演示命令：
+### bhpcli query staking redelegations-from
+
+解释：查询从这个验证者转移的委托记录
+
+示例
+：
 ```bash
- bhpcli query staking redelegations-from bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y 
+bhpcli query staking redelegations-from bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y 
 ```
-#### 输出：
+
+响应
+
 ```json
 [
   {
@@ -690,13 +785,18 @@ bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavnd
   }
 ]
 ```
-### params
-#### 解释：查询当前staking的参数
-#### 演示命令：
+## bhpcli query staking params
+
+解释：查询当前staking的参数
+
+示例
+：
 ```bash
 bhpcli query staking params
 ```
-#### 输出：
+
+响应
+
 ```json
 {
   "unbonding_time": "1209600000000000",
@@ -705,13 +805,18 @@ bhpcli query staking params
   "bond_denom": "abhp"
 }
 ```
-### pool
-#### 解释：查询staking池中委托的未委托的bhp数量
-#### 演示命令：
+## bhpcli query staking pool
+
+解释：查询staking池中委托的未委托的bhp数量
+
+示例
+：
 ```bash
 bhpcli query staking pool
 ```
-#### 输出：
+
+响应
+
 ```json
 {
   "not_bonded_tokens": "133900000000",

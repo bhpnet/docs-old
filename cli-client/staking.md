@@ -24,7 +24,7 @@
 --commission-max-change-rate -->max commission change rate
 --min-self-delegation ->minimun self-delegation
 ```
-#### Demo command:
+Example
 ```bash
 bhpcli tx staking create-validator \
 --amount=2000000000000abhp \
@@ -41,7 +41,7 @@ bhpcli tx staking create-validator \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### Output:
+Response
 ```json
 {
     "height": "0",
@@ -68,12 +68,25 @@ bhpcli tx staking create-validator \
 }
 ```
 ### edit-validator
-#### Description：Edit validator information.ie.website and indentity.The value will keep the creation state if not modified.
+
+#### Edit an existing validator's settings, such as commission rate, name, etc.Description：The value will keep the creation state if not modified.
+
 ```bash
---website ->Set website
---identity ->Set  user avatar on https://keybase.io
+bhpcli tx staking edit-validator [flags]
 ```
-#### Demo command：
+
+**Flags:**
+
+| Name, shorthand   | type   | Required | Default | Description                                        |
+| ----------------- | ------ | -------- | ------- | -------------------------------------------------- |
+| --commission-rate | float  |          | 0.0     | Commission rate percentage                         |
+| --moniker         | string |          |         | Validator name                                     |
+| --identity        | string |          |         | Optional identity signature (ex. UPort or Keybase) |
+| --website         | string |          |         | Optional website                                   |
+| --details         | string |          |         | Optional details                                   |
+
+Example
+
 ```bash
 bhpcli tx staking edit-validator \
 --website "https://bhpa.io" \
@@ -83,7 +96,9 @@ bhpcli tx staking edit-validator \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### Output：
+
+Response
+
 ```json
 {
   "height": "0",
@@ -122,7 +137,7 @@ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### Output:
+Response
 ```json
 {
   "height": "0",
@@ -162,7 +177,7 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### Output:
+Response
 ```json
 {
   "height": "0",
@@ -201,7 +216,7 @@ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 --gas-prices="2.5abhp" \
 --gas-adjustment=2
 ```
-#### Output:
+Response
 ```json
 {
   "height": "0",
@@ -263,7 +278,7 @@ Output:
 ```
 ### delegations
 #### Description:Query all delegations made by one delegator
-#### Demo command:
+Example
 ```bash
 bhpcli query staking delegations $(bhpcli keys show key1 -a)
 ```
@@ -287,13 +302,13 @@ bhpcli query staking delegations $(bhpcli keys show key1 -a)
 
 ### unbonding-delegation
 #### Description:Query an unbonding-delegation record based on delegator and validator address
-#### Demo command:
+Example
 ```bash
 bhpcli query staking unbonding-delegation \
  $(bhpcli keys show key1 -a) \
  bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
-#### Output:
+Response
 ```json
 {
   "delegator_address": "bhp1ceccntfep63j7fwrzapk9w0zvw900s39q95z9c",
@@ -310,11 +325,11 @@ bhpcli query staking unbonding-delegation \
 ```
 ### unbonding-delegations
 #### Description:Query all unbonding-delegations records for one delegator
-#### Demo command:
+Example
 ```bash
  bhpcli query staking unbonding-delegations $(bhpcli keys show key1 -a)
 ```
-#### Output:
+Response
 ```json
 [
   {
@@ -345,14 +360,14 @@ bhpcli query staking unbonding-delegation \
 ```
 ### redelegation
 #### Description:Query a redelegation record based on delegator and a source and destination validator address.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking redelegation \
 $(bhpcli keys show key1 -a) \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
-#### Output:
+Response
 ```json
 [
   {
@@ -373,11 +388,11 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
 ### redelegations
 #### Description:Query all redelegations records for one delegator.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking redelegations $(bhpcli keys show key1 -a)
 ```
-#### Output:
+Response
 ```json
 [
   {
@@ -398,12 +413,12 @@ bhpcli query staking redelegations $(bhpcli keys show key1 -a)
 ```
 ### validator
 #### Description:Query a validator.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking validator \
 bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
-#### Output:
+Response
 ```json
 {
   "operator_address": "bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs",
@@ -433,11 +448,11 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
 ### validators
 #### Description:Query for all validators.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking validators
 ```
-#### Output:
+Response
 ```json
 [
     {
@@ -619,11 +634,11 @@ bhpcli query staking validators
 ```
 ### delegations-to
 #### Description:Query all delegations made to one validator.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking delegations-to bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
 ```
-#### Output:
+Response
 ```json
 [
   {
@@ -642,11 +657,11 @@ bhpcli query staking delegations-to bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5
 ```
 ### unbonding-delegations-from
 #### Description:Query all unbonding delegatations from a validator.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
 ```
-#### Output:
+Response
 ```json
 [
   {
@@ -666,11 +681,11 @@ bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavnd
 ```
 ### redelegations-from
 #### Description:Query all outgoing redelegatations from a validator.
-#### Demo command:
+Example
 ```bash
  bhpcli query staking redelegations-from bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y 
 ```
-#### Output:
+Response
 ```json
 [
   {
@@ -691,11 +706,11 @@ bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavnd
 ```
 ### params
 #### Description:Query the current staking parameters information.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking params
 ```
-#### Output:
+Response
 ```json
 {
   "unbonding_time": "1209600000000000",
@@ -706,11 +721,11 @@ bhpcli query staking params
 ```
 ### pool
 #### Description:Query the current staking pool values.
-#### Demo command:
+Example
 ```bash
 bhpcli query staking pool
 ```
-#### Output:
+Response
 ```json
 {
   "not_bonded_tokens": "133900000000",

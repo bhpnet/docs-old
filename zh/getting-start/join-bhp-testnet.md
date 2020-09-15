@@ -2,7 +2,7 @@
 order: 3
 ---
 
-# 加入公共测试网
+# 加入星空测试网
 
 有关最新测试网络的信息，请参阅[测试网络存储库](https://github.com/bhpnet/bhp)，包含了所使用的BHP的正确版本和genesis文件。
 

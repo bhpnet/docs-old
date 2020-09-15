@@ -363,7 +363,7 @@ bhpcli query staking unbonding-delegation \
   ]
 }
 ```
-### bhpcli query staking unbonding-delegations
+## bhpcli query staking unbonding-delegations
 
 解释：查询委托者的所有正在解除委托的记录
 
@@ -403,7 +403,7 @@ bhpcli query staking unbonding-delegations $(bhpcli keys show key1 -a)
   }
 ]
 ```
-### bhpcli query staking redelegation
+## bhpcli query staking redelegation
 
 解释：使用委托者地址和前、后验证者地址查询重新委托记录,其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为先前委托者地址，
 bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs为转移到的委托者地址
@@ -726,7 +726,7 @@ bhpcli query staking delegations-to bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5
   }
 ]
 ```
-### bhpcli query staking unbonding-delegations-from
+## bhpcli query staking unbonding-delegations-from
 
 解释：查询一个验证者上的所有解除委托记录 
 
@@ -755,7 +755,7 @@ bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavnd
 ]
 
 ```
-### bhpcli query staking redelegations-from
+## bhpcli query staking redelegations-from
 
 解释：查询从这个验证者转移的委托记录
 

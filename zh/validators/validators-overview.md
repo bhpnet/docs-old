@@ -11,3 +11,32 @@ BHP 基于 Cosmos SDK 和 Tendermint 实现，它依靠一组验证人节点来�
 - 积极参与治理： 要求验证人对每个提案进行投票。
 
 此外，验证人将是社区的积极成员。他们应该始终与生态系统的当前状态保持同步，以便轻松地适应任何变化。
+
+
+## 验证人的部分操作
+
+### 创建验证人
+
+[bhpcli tx staking create-validator](https://docs.bhpnet.io/zh/cli-client/staking.html#bhpcli-tx-staking-create-validator)
+
+### 编辑验证人
+
+[bhpcli tx staking edit-validator](https://docs.bhpnet.io/zh/cli-client/staking.html#bhpcli-tx-staking-create-validator)
+
+### 委托BHP到验证人节点
+
+[bhpcli tx staking delegate](https://docs.bhpnet.io/zh/cli-client/staking.html#bhpcli-tx-staking-delegate)
+
+### 获取佣金和手续费收益
+
+从某个验证者地址提取奖励，如果你的地址是验证人身份还可以提取佣金收益
+
+[bhpcli tx distribution withdraw-rewards](https://docs.bhpnet.io/zh/cli-client/slashing.html)
+
+### 解除监禁
+
+[bhpcli tx slashing unjail](https://docs.bhpnet.io/zh/cli-client/slashing.html)
+
+### 其他命令 
+
+更多验证人命令可[查看](/zh/cli-client/staking.md)

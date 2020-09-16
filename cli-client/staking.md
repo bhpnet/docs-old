@@ -5,15 +5,14 @@
 ## transactions
 | **command**                   | **Description**                                  |
 | -------------------------- | ---------------------------------------- |
-| [create-validator](#create-validator)  | Create a  new validator              |
-| [edit-validator](#edit-validator)      | Edit a validator            |
-| [delegate](#delegate)                  | Delegate bhp to a validator                |
-| [redelegate](#redelegate)              | move delegation from a validator to another |
-| [unbound](#unblund)                    | unbond a delegation                       |
+| [create-validator](#bhpcli-tx-staking-create-validator)  | Create a  new validator              |
+| [edit-validator](#bhpcli-tx-staking-edit-validator)      | Edit a validator            |
+| [delegate](#bhpcli-tx-staking-delegate)                  | Delegate bhp to a validator                |
+| [redelegate](#bhpcli-tx-staking-redelegate)              | move delegation from a validator to another |
+| [unbound](#bhpcli-tx-staking-unbond)                    | unbond a delegation                       |
 
-
-### create-validator
-#### Description:Create a new validator
+## bhpcli tx staking create-validator
+Description:Create a new validator
 ```bash
 --amount ->self-delegation amount
 --pukey ->node public key
@@ -67,9 +66,9 @@ Response
     ]
 }
 ```
-### edit-validator
 
-#### Edit an existing validator's settings, such as commission rate, name, etc.Description：The value will keep the creation state if not modified.
+## bhpcli tx staking edit-validator
+Description: Edit an existing validator's settings, such as commission rate, name, etc.Description：The value will keep the creation state if not modified.
 
 ```bash
 bhpcli tx staking edit-validator [flags]
@@ -124,9 +123,10 @@ Response
   ]
 }
 ```
-### delegate
-#### Description:Delegate bhp to validator
-#### Demo command :The bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y is the address of a validator.
+
+## bhpcli tx staking delegate
+Description:Delegate bhp to validator
+Example: The bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y is the address of a validator.
 ```bash
 bhpcli tx staking delegate \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
@@ -163,9 +163,9 @@ Response
   ]
 }
 ```
-### redelegate
-#### Descriptioin:Move delegation form a validator to another.
-#### Below is the Demo command.The address bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y is the source validator address andbhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs is the destination validator address.
+## bhpcli tx staking redelegate
+Descriptioin:Move delegation form a validator to another.
+Example: The address bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y is the source validator address andbhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs is the destination validator address.
 ```bash
 bhpcli tx staking redelegate \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
@@ -203,9 +203,9 @@ Response
   ]
 }
 ```
-### unbound
-#### Description:Unbond bhp form a validator.The default unbonding time is 2 weeks.
-#### Demo command.The addreess bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y is the validator address.
+## bhpcli tx staking unbond
+Description:Unbond bhp form a validator.The default unbonding time is 2 weeks.
+Example: The addreess bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y is the validator address.
 ```bash
 bhpcli tx staking unbond \
 bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
@@ -246,23 +246,23 @@ Response
 ## Query
 | **Command**                    | **Description**                                                    |
 | -------------------------- | ----------------------------------------------------------- |
-| [delegation](#delegation)  | Query a delegation based on address and validator address                  |
-|[delegations](#delegations)                | Query all delegations made by one delegator                                |
-| [unbonding-delegation](#unbonding-delegation)       | Query an unbonding-delegation record based on delegator and validator address         |
-| [unbonding-delegations](#unbonding-delegations)      | Query all unbonding-delegations records for one delegator                        |
-| [redelegation](#redelegation)               | Query a redelegation record based on delegator and a source and destination validator address    |
-| [redelegations](#redelegations)              | Query all redelegations records for one delegator                        |
-| [validator](#validator)                  |  Query a validator                                     |
-| [validators](#validators)                 | Query for all validators                          |
-| [delegations-to](#delegations-to)             | Query all delegations made to one validator                          |
-| [unbonding-delegations-from](#unbonding-delegations-from) | Query all unbonding delegatations from a validator                       |
-| [redelegations-from](#redelegations-from)         | Query all outgoing redelegatations from a validator  |
-| [params](#params)                     | Query the current staking parameters information                                  |
-| [pool](#pool)                       | Query the current staking pool values                  |
+| [delegation](#delegatbhpcli-query-staking-delegation)  | Query a delegation based on address and validator address                  |
+|[delegations](#bhpcli-query-staking-delegations)                | Query all delegations made by one delegator                                |
+| [unbonding-delegation](#bhpcli-query-staking-unbonding-delegation)       | Query an unbonding-delegation record based on delegator and validator address         |
+| [unbonding-delegations](#bhpcli-query-staking-unbonding-delegations)      | Query all unbonding-delegations records for one delegator                        |
+| [redelegation](#bhpcli-query-staking-redelegation)               | Query a redelegation record based on delegator and a source and destination validator address    |
+| [redelegations](#bhpcli-query-staking-redelegations)              | Query all redelegations records for one delegator                        |
+| [validator](#bhpcli-query-staking-validator)                  |  Query a validator                                     |
+| [validators](#bhpcli-query-staking-validators)                 | Query for all validators                          |
+| [delegations-to](#bhpcli-query-staking-delegations-to)             | Query all delegations made to one validator                          |
+| [unbonding-delegations-from](#bhpcli-query-staking-unbonding-delegations-from) | Query all unbonding delegatations from a validator                       |
+| [redelegations-from](#bhpcli-query-staking-redelegations-from)         | Query all outgoing redelegatations from a validator  |
+| [params](#bhpcli-query-staking-params)                     | Query the current staking parameters information                                  |
+| [pool](#bhpcli-query-staking-pool)                       | Query the current staking pool values                  |
 
-### delegation
+## bhpcli query staking delegation
 Description:Query a delegation based on address and validator address
-Demo command：
+Example
 ```bash
 bhpcli query staking delegation \
 $(bhpcli keys show key1 -a) \ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
@@ -276,13 +276,13 @@ Output:
   "balance": "10000000000"
 }
 ```
-### delegations
-#### Description:Query all delegations made by one delegator
+## bhpcli query staking delegations
+Description:Query all delegations made by one delegator
 Example
 ```bash
 bhpcli query staking delegations $(bhpcli keys show key1 -a)
 ```
-#### 输出
+Response
 ```json
 [
   {
@@ -300,8 +300,8 @@ bhpcli query staking delegations $(bhpcli keys show key1 -a)
 ]
 ```
 
-### unbonding-delegation
-#### Description:Query an unbonding-delegation record based on delegator and validator address
+## bhpcli query staking unbonding-delegation
+Description:Query an unbonding-delegation record based on delegator and validator address
 Example
 ```bash
 bhpcli query staking unbonding-delegation \
@@ -323,8 +323,8 @@ Response
   ]
 }
 ```
-### unbonding-delegations
-#### Description:Query all unbonding-delegations records for one delegator
+## bhpcli query staking unbonding-delegations
+Description:Query all unbonding-delegations records for one delegator
 Example
 ```bash
  bhpcli query staking unbonding-delegations $(bhpcli keys show key1 -a)
@@ -358,8 +358,8 @@ Response
   }
 ]
 ```
-### redelegation
-#### Description:Query a redelegation record based on delegator and a source and destination validator address.
+## bhpcli query staking redelegation
+Description:Query a redelegation record based on delegator and a source and destination validator address.
 Example
 ```bash
 bhpcli query staking redelegation \
@@ -386,8 +386,8 @@ Response
   }
 ]
 ```
-### redelegations
-#### Description:Query all redelegations records for one delegator.
+## bhpcli query staking redelegations
+Description:Query all redelegations records for one delegator.
 Example
 ```bash
 bhpcli query staking redelegations $(bhpcli keys show key1 -a)
@@ -411,8 +411,8 @@ Response
   }
 ]
 ```
-### validator
-#### Description:Query a validator.
+## bhpcli query staking validator
+Description: Query a validator.
 Example
 ```bash
 bhpcli query staking validator \
@@ -446,8 +446,8 @@ Response
   "min_self_delegation": "1"
 }
 ```
-### validators
-#### Description:Query for all validators.
+## bhpcli query staking validators
+Description:Query for all validators.
 Example
 ```bash
 bhpcli query staking validators
@@ -632,8 +632,8 @@ Response
     }
 ]
 ```
-### delegations-to
-#### Description:Query all delegations made to one validator.
+## bhpcli query staking delegations-to
+Description:Query all delegations made to one validator.
 Example
 ```bash
 bhpcli query staking delegations-to bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
@@ -655,8 +655,8 @@ Response
   }
 ]
 ```
-### unbonding-delegations-from
-#### Description:Query all unbonding delegatations from a validator.
+### bhpcli query staking unbonding-delegations-from
+Description:Query all unbonding delegatations from a validator.
 Example
 ```bash
 bhpcli query staking unbonding-delegations-from bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y
@@ -679,8 +679,8 @@ Response
 ]
 
 ```
-### redelegations-from
-#### Description:Query all outgoing redelegatations from a validator.
+## bhpcli query staking redelegations-from
+Description:Query all outgoing redelegatations from a validator.
 Example
 ```bash
  bhpcli query staking redelegations-from bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y 
@@ -704,8 +704,8 @@ Response
   }
 ]
 ```
-### params
-#### Description:Query the current staking parameters information.
+## bhpcli query staking params
+Description:Query the current staking parameters information.
 Example
 ```bash
 bhpcli query staking params
@@ -719,8 +719,8 @@ Response
   "bond_denom": "abhp"
 }
 ```
-### pool
-#### Description:Query the current staking pool values.
+## bhpcli query staking pool
+Description:Query the current staking pool values.
 Example
 ```bash
 bhpcli query staking pool

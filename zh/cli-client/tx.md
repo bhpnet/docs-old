@@ -20,8 +20,17 @@ order: 6
 bhpcli tx send [from_key_or_address] [to_address] [amount] [flags]
 ```
 示例
+
+案例中第一个参数是要转账的地址，第二个参数是接受地址，第三个参数是转账金额，第四个参数是手续费
+
 ```shell script
-bhpcli tx send  bhp1j4kfjvsqdcpdzdnv4c9zkp5qxt49ngf2f5nmwh bhp1t7gmv3qraqc7urcp2jqk2wv54p9jrevn9h3qhs 1000000000abhp --fees 10abhp
+bhpcli tx send \
+    bhp1vvknv4svw422p0tnthw5v7zgqre3yntj5srv5c \
+    bhp1kqezagrup445e8mv4qpy003asfwq0acku9lex0 \
+    9999500000abhp \
+    --fees 500000abhp \
+    --node=http://localhost:26657 \
+    --chain-id testing
 ```
 响应
 ```shell script

@@ -21,7 +21,7 @@ BHP 基于 Cosmos SDK 和 Tendermint 实现，它依靠一组验证人节点来�
 
 ### 编辑验证人
 
-[bhpcli tx staking edit-validator](https://docs.bhpnet.io/zh/cli-client/staking.html#bhpcli-tx-staking-create-validator)
+[bhpcli tx staking edit-validator](https://docs.bhpnet.io/zh/cli-client/staking.html#bhpcli-tx-staking-edit-validator)
 
 ### 委托BHP到验证人节点
 

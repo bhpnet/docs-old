@@ -19,18 +19,18 @@
 
 **标志：**
 
-| 名称，速记        | 类型   | 必须 | 默认 | 描述               |
-| ----------------- | ------ | ---- | ---- | ------------------ |
-| --amount | string  |   是   |   | 自委托的数量           |
-| --pukey | string  |   是   |   | Bech32编码的节点公钥           |
-| --moniker         | string |      |      | 验证人名称         |
-| --commission-rate | float  |      | 0.0  | 佣金比率           |
-| --commission-max-rate | float  |      | 0.0  | 验证者最大佣金比例           |
-| --commission-max-change-rate | float  |      | 0.0  | 验证者修改佣金比例时最大改变比例（每天）   |
-| --identity        | string |      |      | 身份签名，头像采用 keybase.io上用户头像，具体可查看区块浏览器的官网头像设置方法         |
-| --website         | string |      |      | 网址               |
-| --details         | string |      |      | 验证人节点详细介绍 |
-| --min-self-delegation        | string |    非  |      | 最少委托的数量 |
+| 名称，速记        | 类型   | 必须 | 描述               |
+| ----------------- | ------ |  ---- | ------------------ |
+| --amount | string  |   是   |  自委托的数量           |
+| --pukey | string  |   是   |  Bech32编码的节点公钥           |
+| --moniker         | string |  是  | 验证人名称         |
+| --commission-rate | string  |  是  |  佣金比率           |
+| --commission-max-rate | string  |   是   |  验证者最大佣金比例           |
+| --commission-max-change-rate | string  | 是  | 验证者修改佣金比例时最大改变比例（每天）   |
+| --identity        | string |  非   | 身份签名，头像采用 keybase.io上用户头像，具体可查看区块浏览器的官网头像设置方法         |
+| --website         | string |   非   | 网址               |
+| --details         | string |    是 | 验证人节点详细介绍 |
+| --min-self-delegation        | string |    非  |  最少委托的数量 |
 
 示例
 
@@ -89,13 +89,13 @@ bhpcli tx staking edit-validator [flags]
 
 **标志：**
 
-| 名称，速记        | 类型   | 必须 | 默认 | 描述               |
-| ----------------- | ------ | ---- | ---- | ------------------ |
-| --commission-rate | float  |      | 0.0  | 佣金比率           |
-| --moniker         | string |      |      | 验证人名称         |
-| --identity        | string |      |      | 身份签名，头像采用 keybase.io上用户头像，具体可查看区块浏览器的官网头像设置方法         |
-| --website         | string |      |      | 网址               |
-| --details         | string |      |      | 验证人节点详细介绍 |
+| 名称，速记          | 类型    | 必须 | 描述               |
+| ----------------- | ------ | ---- | ------------------ |
+| --commission-rate | float  |      | 佣金比率           |
+| --moniker         | string |      | 验证人名称         |
+| --identity        | string |      | 身份签名，头像采用 keybase.io上用户头像，具体可查看区块浏览器的官网头像设置方法         |
+| --website         | string |      | 网址               |
+| --details         | string |      | 验证人节点详细介绍 |
 
 示例
 

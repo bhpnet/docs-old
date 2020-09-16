@@ -12,18 +12,26 @@
 | [unbound](#bhpcli-tx-staking-unbond)                    | unbond a delegation                       |
 
 ## bhpcli tx staking create-validator
+
 Description:Create a new validator
-```bash
---amount ->self-delegation amount
---pukey ->node public key
---moniker ->moniker name 
---details ->validator details
---commission-rate ->commission rete
---commission-max-rate ->max commission rate
---commission-max-change-rate -->max commission change rate
---min-self-delegation ->minimun self-delegation
-```
+
+**Flags：**
+
+| Name     | type   | Required  | Description               |
+| ----------------- | ------ |  ---- | ------------------ |
+| --amount | string  |   yes   |    Amount of coins to bond    |
+| --pukey | string  |   yes   |  The Bech32 encoded PubKey of the validator  |
+| --moniker         | string |   yes   |  The validator's name |
+| --commission-rate | string  |    yes  |  The initial commission rate percentage |
+| --commission-max-rate | string  |   yes   |  The maximum commission rate percentage |
+| --commission-max-change-rate | string  |   yes   |  The maximum commission change rate percentage (per day) |
+| --identity        | string | no  | The optional identity signature (ex. UPort or Keybase)  |
+| --website         | string |   no  | The validator's (optional) website        |
+| --details         | string |  yes  | The validator's (optional) details|
+| --min-self-delegation        | string |    no    | The minimum self delegation required on the validator |
+
 Example
+
 ```bash
 bhpcli tx staking create-validator \
 --amount=2000000000000abhp \
@@ -76,19 +84,19 @@ bhpcli tx staking edit-validator [flags]
 
 **Flags:**
 
-| Name, shorthand   | type   | Required | Default | Description                                        |
-| ----------------- | ------ | -------- | ------- | -------------------------------------------------- |
-| --commission-rate | float  |          | 0.0     | Commission rate percentage                         |
-| --moniker         | string |          |         | Validator name                                     |
-| --identity        | string |          |         | Optional identity signature (ex. UPort or Keybase) |
-| --website         | string |          |         | Optional website                                   |
-| --details         | string |          |         | Optional details                                   |
+| Name, shorthand   | type   | Required |   Description                                        |
+| ----------------- | ------ | -------- |   -------------------------------------------------- |
+| --commission-rate | float  |          |   Commission rate percentage                         |
+| --moniker         | string |          |   Validator name                                     |
+| --identity        | string |          |   Optional identity signature (ex. UPort or Keybase) |
+| --website         | string |          |   Optional website                                   |
+| --details         | string |          |   Optional details                                   |
 
 Example
 
 ```bash
 bhpcli tx staking edit-validator \
---website "https://bhpa.io" \
+--website "https://bhpnet.io" \
 --from demokey \
 --chain-id "testing" \
 --gas=auto \

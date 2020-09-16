@@ -24,7 +24,7 @@ Additionally, validators are expected to be active members of the community. The
 
 ### Edit Validator
 
-[bhpcli tx staking edit-validator](https://docs.bhpnet.io/cli-client/staking.html#bhpcli-tx-staking-create-validator)
+[bhpcli tx staking edit-validator](https://docs.bhpnet.io/cli-client/staking.html#bhpcli-tx-staking-edit-validator)
 
 ### Delegate bhp to Validator
 

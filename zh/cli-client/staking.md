@@ -15,36 +15,40 @@
 
 ## bhpcli tx staking create-validator
 
-解释：在已有网络上创建一个新的验证者。
+在已有网络上创建一个新的验证者。
 
-```bash
---amount 自委托的数量
---pukey 节点公钥
---moniker 验证者名字
---details 验证者详细信息
---commission-rate 验证者佣金比例
---commission-max-rate 验证者最大佣金比例
---commission-max-change-rate 验证者修改佣金比例时最大改变量比例
---min-self-delegation 最少委托的数量
-```
+**标志：**
+
+| 名称，速记        | 类型   | 必须 | 默认 | 描述               |
+| ----------------- | ------ | ---- | ---- | ------------------ |
+| --amount | string  |   是   |   | 自委托的数量           |
+| --pukey | string  |   是   |   | Bech32编码的节点公钥           |
+| --moniker         | string |      |      | 验证人名称         |
+| --commission-rate | float  |      | 0.0  | 佣金比率           |
+| --commission-max-rate | float  |      | 0.0  | 验证者最大佣金比例           |
+| --commission-max-change-rate | float  |      | 0.0  | 验证者修改佣金比例时最大改变比例（每天）   |
+| --identity        | string |      |      | 身份签名，头像采用 keybase.io上用户头像，具体可查看区块浏览器的官网头像设置方法         |
+| --website         | string |      |      | 网址               |
+| --details         | string |      |      | 验证人节点详细介绍 |
+| --min-self-delegation        | string |    非  |      | 最少委托的数量 |
 
 示例
 
 ```bash
 bhpcli tx staking create-validator \
---amount=2000000000000abhp \
---pubkey=$(bhpd tendermint show-validator) \
---moniker="DemoValidator" \
---details="I'm a good validator" \
---commission-rate="0.10" \
---commission-max-rate="0.20" \
---commission-max-change-rate="0.01" \
---min-self-delegation="1" \
---from=demokey \
---chain-id=testing \
---gas=auto \
---gas-prices="2.5abhp" \
---gas-adjustment=2
+    --amount=2000000000000abhp \
+    --pubkey=$(bhpd tendermint show-validator) \
+    --moniker="DemoValidator" \
+    --details="I'm a good validator" \
+    --commission-rate="0.10" \
+    --commission-max-rate="0.20" \
+    --commission-max-change-rate="0.01" \
+    --min-self-delegation="1" \
+    --from=demokey \
+    --chain-id=testing \
+    --gas=auto \
+    --gas-prices="2.5abhp" \
+    --gas-adjustment=2
 ```
 
 响应
@@ -97,12 +101,12 @@ bhpcli tx staking edit-validator [flags]
 
 ```bash
 bhpcli tx staking edit-validator \
---website "https://bhpnet.io" \
---from demokey \
---chain-id "testing" \
---gas=auto \
---gas-prices="2.5abhp" \
---gas-adjustment=2
+    --website "https://bhpnet.io" \
+    --from demokey \
+    --chain-id "testing" \
+    --gas=auto \
+    --gas-prices="2.5abhp" \
+    --gas-adjustment=2
 ```
 
 响应
@@ -141,13 +145,13 @@ bhpcli tx staking edit-validator \
 其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为验证者地址
 ```bash
 bhpcli tx staking delegate \
-bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
-10000000000abhp \
---from key1 \
---chain-id testing \
---gas=auto \
---gas-prices="2.5abhp" \
---gas-adjustment=2
+    bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
+    10000000000abhp \
+    --from key1 \
+    --chain-id testing \
+    --gas=auto \
+    --gas-prices="2.5abhp" \
+    --gas-adjustment=2
 ```
 
 响应
@@ -183,17 +187,18 @@ bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
 
 示例
 
-其中bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y为原验证者地址，bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs为新验证者地址。
+其中bhpvaloper1fw09gul7lltrv7w04grwdcpptsent26qsgv6g9为原验证者地址，bhpvaloper1kqezagrup445e8mv4qpy003asfwq0ackkxmrf0为新验证者地址。
 ```bash
 bhpcli tx staking redelegate \
-bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
-bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs \
-10000000000abhp \
---from key1 \
---chain-id testing \
---gas=auto \
---gas-prices="2.5abhp" \
---gas-adjustment=2
+    bhpvaloper1fw09gul7lltrv7w04grwdcpptsent26qsgv6g9 \
+    bhpvaloper1kqezagrup445e8mv4qpy003asfwq0ackkxmrf0 \
+    10000000000abhp \
+    --from link \
+    --chain-id testing \
+    --gas=auto \
+    --gas-prices="2.5abhp" \
+    --gas-adjustment=2 \
+    --node=http://localhost:26657
 ```
 
 响应
@@ -343,8 +348,8 @@ bhpcli query staking delegations $(bhpcli keys show key1 -a)
 
 ```bash
 bhpcli query staking unbonding-delegation \
- $(bhpcli keys show key1 -a) \
- bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
+    $(bhpcli keys show key1 -a) \
+    bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
 
 响应
@@ -412,9 +417,9 @@ bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs为转移到的委托者地址
 
 ```bash
 bhpcli query staking redelegation \
-$(bhpcli keys show key1 -a) \
-bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
-bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
+    $(bhpcli keys show key1 -a) \
+    bhpvaloper1eesqv2r4v2al6dn5wavndm96fwth3y6s5wfa3y \
+    bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
 
 响应
@@ -475,7 +480,7 @@ bhpcli query staking redelegations $(bhpcli keys show key1 -a)
 ：
 ```bash
 bhpcli query staking validator \
-bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
+    bhpvaloper1t7gmv3qraqc7urcp2jqk2wv54p9jrevn0546cs
 ```
 
 响应
